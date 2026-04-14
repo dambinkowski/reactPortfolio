@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 2 | Tic Tac Toe Board</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav">
+      <a href="../index.html">Back to portfolio</a>
+    </nav>
+
+    <header class="page-hero">
+      <p class="eyebrow">Project 2</p>
+      <h1>Tic Tac Toe Board</h1>
+      <p class="page-subtitle">
+        A React Native composition exercise that uses nested flex layouts to build a colorful static game board.
+      </p>
+      <div class="meta-row">
+        <span class="pill pill-accent">React Native</span>
+        <span class="pill">Grid composition</span>
+        <span class="pill">Nested flexbox</span>
+      </div>
+    </header>
+
+    <section class="content-card two-column">
+      <div>
+        <p class="mini-label">Report Summary</p>
+        <div class="summary-box">
+          <p>
+            This project focuses on spatial layout rather than game logic. The interface is assembled from one main
+            container, a square board, and stacked row and column wrappers to produce a 3x3 grid.
+          </p>
+          <ul>
+            <li>Uses `aspectRatio` to keep the board square across screen sizes.</li>
+            <li>Builds the board from nested rows and columns instead of absolute positioning.</li>
+            <li>Fills each cell with a different color to make layout boundaries immediately visible.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <h2 class="preview-title">Project Preview</h2>
+        <p class="preview-caption">A browser mockup based on the same 3x3 arrangement in the source file.</p>
+        <div class="mock-stage" style="background: linear-gradient(135deg, #7fd0ff, #2b72aa);">
+          <div class="board-preview">
+            <div class="board-cell" style="background:#d6363c;">X</div>
+            <div class="board-cell" style="background:#d6b41a;">X</div>
+            <div class="board-cell" style="background:#27985b;">O</div>
+            <div class="board-cell" style="background:#2368cf;">O</div>
+            <div class="board-cell" style="background:#7a3fb1;">X</div>
+            <div class="board-cell" style="background:#6f6f72;">O</div>
+            <div class="board-cell" style="background:#148d8b;">O</div>
+            <div class="board-cell" style="background:#d07b18;">O</div>
+            <div class="board-cell" style="background:#db6ea2;">X</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <p class="mini-label">Code</p>
+      <h2>App.js</h2>
+      <div class="code-block">
+        <pre><code>import { StyleSheet, Text, View } from 'react-native';
+
+// Tic Tac Toe board
+
+export default function App() {
+  return (
+    &lt;View style={styles.mainView}&gt;
+      &lt;View style={styles.box}&gt;
+        &lt;View style={styles.column}&gt;
+          &lt;View style={styles.row}&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'red' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'yellow' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'green' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
+          &lt;/View&gt;
+
+          &lt;View style={styles.row}&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'blue' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'purple' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'gray' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
+          &lt;/View&gt;
+
+          &lt;View style={styles.row}&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'teal' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'orange' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
+            &lt;Text style={[styles.text, { backgroundColor: 'pink' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+}
+
+const styles = StyleSheet.create({
+  mainView: {
+    flex: 1,
+    backgroundColor: 'lightblue',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  column: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  box: {
+    width: '90%',
+    aspectRatio: 1,
+  },
+  text: {
+    flex: 1,
+    fontSize: 999,
+    textAlign: 'center',
+  },
+});</code></pre>
+      </div>
+    </section>
+
+    <footer class="repo-footer">React Native Portfolio</footer>
+  </div>
+</body>
+</html>
