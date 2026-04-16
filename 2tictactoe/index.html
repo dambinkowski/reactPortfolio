@@ -41,86 +41,23 @@
         </div>
       </div>
 
-      <div class="preview-panel">
-        <h2 class="preview-title">Project Preview</h2>
-        <p class="preview-caption">A browser mockup based on the same 3x3 arrangement in the source file.</p>
-        <div class="mock-stage" style="background: linear-gradient(135deg, #7fd0ff, #2b72aa);">
-          <div class="board-preview">
-            <div class="board-cell" style="background:#d6363c;">X</div>
-            <div class="board-cell" style="background:#d6b41a;">X</div>
-            <div class="board-cell" style="background:#27985b;">O</div>
-            <div class="board-cell" style="background:#2368cf;">O</div>
-            <div class="board-cell" style="background:#7a3fb1;">X</div>
-            <div class="board-cell" style="background:#6f6f72;">O</div>
-            <div class="board-cell" style="background:#148d8b;">O</div>
-            <div class="board-cell" style="background:#d07b18;">O</div>
-            <div class="board-cell" style="background:#db6ea2;">X</div>
-          </div>
-        </div>
+      <div>
+        <p class="mini-label">Project Screenshot</p>
+        <img class="project-screenshot" src="./Screenshot.jpg" alt="Tic Tac Toe app screenshot" />
       </div>
     </section>
 
     <section class="content-card">
-      <p class="mini-label">Code</p>
-      <h2>App.js</h2>
-      <div class="code-block">
-        <pre><code>import { StyleSheet, Text, View } from 'react-native';
-
-// Tic Tac Toe board
-
-export default function App() {
-  return (
-    &lt;View style={styles.mainView}&gt;
-      &lt;View style={styles.box}&gt;
-        &lt;View style={styles.column}&gt;
-          &lt;View style={styles.row}&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'red' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'yellow' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'green' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
-          &lt;/View&gt;
-
-          &lt;View style={styles.row}&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'blue' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'purple' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'gray' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
-          &lt;/View&gt;
-
-          &lt;View style={styles.row}&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'teal' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'orange' }]} adjustsFontSizeToFit&gt;O&lt;/Text&gt;
-            &lt;Text style={[styles.text, { backgroundColor: 'pink' }]} adjustsFontSizeToFit&gt;X&lt;/Text&gt;
-          &lt;/View&gt;
-        &lt;/View&gt;
-      &lt;/View&gt;
-    &lt;/View&gt;
-  );
-}
-
-const styles = StyleSheet.create({
-  mainView: {
-    flex: 1,
-    backgroundColor: 'lightblue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  column: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  row: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  box: {
-    width: '90%',
-    aspectRatio: 1,
-  },
-  text: {
-    flex: 1,
-    fontSize: 999,
-    textAlign: 'center',
-  },
-});</code></pre>
+      <p class="preview-title">Live Preview</p>
+      <div
+        data-snack-id="@dambinkowski/tic-tac-toe"
+        data-snack-platform="web"
+        data-snack-supported-platforms="web"
+        data-snack-preview="true"
+        data-snack-theme="light"
+        style="overflow:hidden;background:#0d1117;border:1px solid #30363d;border-radius:8px;height:620px;width:100%"
+      >
+        <script async src="https://snack.expo.dev/embed.js"></script>
       </div>
     </section>
 

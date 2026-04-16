@@ -270,6 +270,31 @@ a {
   color: var(--muted);
 }
 
+.project-screenshot {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: #0d1117;
+}
+
+.snack-note {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.snack-embed {
+  width: 100%;
+  min-height: 620px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #0d1117;
+}
+
 .mock-stage {
   display: grid;
   place-items: center;
