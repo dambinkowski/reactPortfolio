@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 5 | Workout App</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav">
+      <a href="../index.html">Back to portfolio</a>
+    </nav>
+
+    <header class="page-hero">
+      <p class="eyebrow">Project 5</p>
+      <h1>Workout App</h1>
+      <p class="page-subtitle">
+        A workout timer and routine editor app with multiple screens, exercise sequencing, and data persistence.
+      </p>
+      <div class="meta-row">
+        <span class="pill pill-accent">React Native</span>
+        <span class="pill">AsyncStorage</span>
+        <span class="pill">Timer workflows</span>
+      </div>
+    </header>
+
+    <section class="content-card two-column">
+      <div>
+        <p class="mini-label">Report Summary</p>
+        <div class="summary-box">
+          <p>
+            This project implements a multi-screen workout assistant where users can create routines,
+            edit exercises, and run guided timers for each session.
+          </p>
+          <ul>
+            <li>Home screen displays available workouts and supports creating new routines.</li>
+            <li>Workout screen runs interval timers and shows upcoming exercises.</li>
+            <li>Edit screen updates exercise names/times and persists data with AsyncStorage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <h2 class="preview-title">Project Preview</h2>
+        <p class="preview-caption">A browser mockup inspired by the workout list and timer flow.</p>
+        <div class="mock-stage" style="background:#172028;">
+          <div style="width:min(100%,440px);display:grid;gap:10px;">
+            <div style="background:lightskyblue;border-radius:14px;padding:14px;color:#111;">
+              <div style="font-weight:700;font-size:1.2rem;">Upper Body</div>
+              <div style="font-style:italic;">Push-ups, Rows, Shoulder Press</div>
+            </div>
+            <div style="background:aquamarine;border-radius:14px;padding:14px;color:#111;">
+              <div style="font-weight:700;font-size:1.1rem;">Ready?</div>
+              <div style="font-size:2rem;font-weight:700;">0:30.0</div>
+            </div>
+            <div style="background:lightcyan;border-radius:14px;padding:14px;color:#111;">
+              <div style="font-weight:700;">Next:</div>
+              <div>Squats - 45s</div>
+              <div>Plank - 60s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <p class="mini-label">Code</p>
+      <h2>App.js</h2>
+      <div class="code-block">
+        <pre><code>import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, ScrollView, TextInput } from 'react-native';
+import { useState, useRef, useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+var workouts = [];
+const Stack = createNativeStackNavigator();
+
+function HomeScreen({ navigation }) {
+  const [presentedWorkouts, setPresentedWorkouts] = useState(JSON.stringify(workouts));
+  // list workouts and navigate to selected routine
+}
+
+function WorkoutScreen({ route, navigation }) {
+  const [isRuning, setIsRunning] = useState(false);
+  const timerInterval = useRef(undefined);
+  // runTimer and runWorkout handle interval progression per exercise
+}
+
+function EditWorkoutScreen({ route, navigation }) {
+  // edit workout metadata and exercise timing
+}
+
+export default function App() {
+    return (
+    &lt;NavigationContainer&gt;
+      &lt;Stack.Navigator&gt;
+        &lt;Stack.Screen name="Home" component={HomeScreen} /&gt;
+      &lt;/Stack.Navigator&gt;
+    &lt;/NavigationContainer&gt;
+  );
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="repo-footer">React Native Portfolio</footer>
+  </div>
+</body>
+</html>

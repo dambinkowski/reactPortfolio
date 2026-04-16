@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 3 | Calculator</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav">
+      <a href="../index.html">Back to portfolio</a>
+    </nav>
+
+    <header class="page-hero">
+      <p class="eyebrow">Project 3</p>
+      <h1>Calculator</h1>
+      <p class="page-subtitle">
+        A React Native calculator app with arithmetic operations, chained calculations, sign toggle, and percent handling.
+      </p>
+      <div class="meta-row">
+        <span class="pill pill-accent">React Native</span>
+        <span class="pill">State management</span>
+        <span class="pill">Touchable controls</span>
+      </div>
+    </header>
+
+    <section class="content-card two-column">
+      <div>
+        <p class="mini-label">Report Summary</p>
+        <div class="summary-box">
+          <p>
+            This project builds a calculator UI with responsive button sizing and state-driven arithmetic logic.
+            Input and operator state are tracked to support sequential operations and number replacement behavior.
+          </p>
+          <ul>
+            <li>Implements clear, sign toggle, percent conversion, and decimal entry.</li>
+            <li>Supports chained operations by caching memory and operator values.</li>
+            <li>Uses touchable button rows to mimic a native mobile calculator keypad.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <h2 class="preview-title">Project Preview</h2>
+        <p class="preview-caption">A browser mockup inspired by the app layout in the React Native source.</p>
+        <div class="mock-stage" style="background:#111;">
+          <div style="width:min(100%,420px);">
+            <div style="color:#fff;text-align:right;font-size:2.4rem;margin-bottom:14px;">125.4</div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+              <div class="board-cell" style="background:#b5b5b5;color:#111;">C</div>
+              <div class="board-cell" style="background:#b5b5b5;color:#111;">+/-</div>
+              <div class="board-cell" style="background:#b5b5b5;color:#111;">%</div>
+              <div class="board-cell" style="background:#4f7dd8;">/</div>
+              <div class="board-cell" style="background:#5a5a5a;">7</div>
+              <div class="board-cell" style="background:#5a5a5a;">8</div>
+              <div class="board-cell" style="background:#5a5a5a;">9</div>
+              <div class="board-cell" style="background:#4f7dd8;">x</div>
+              <div class="board-cell" style="background:#5a5a5a;">4</div>
+              <div class="board-cell" style="background:#5a5a5a;">5</div>
+              <div class="board-cell" style="background:#5a5a5a;">6</div>
+              <div class="board-cell" style="background:#4f7dd8;">-</div>
+              <div class="board-cell" style="background:#5a5a5a;">1</div>
+              <div class="board-cell" style="background:#5a5a5a;">2</div>
+              <div class="board-cell" style="background:#5a5a5a;">3</div>
+              <div class="board-cell" style="background:#4f7dd8;">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <p class="mini-label">Code</p>
+      <h2>App.js</h2>
+      <div class="code-block">
+        <pre><code>import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+
+const scaledToWidth = Dimensions.get('window').width / 4;
+
+export default function App() {
+  const [answerValue, setAnswerValue] = useState('0');
+  const [readyToReplace, setReadyToReplace] = useState(1);
+  const [memoryValue, setMemoryValue] = useState(0);
+  const [operatorValue, setOperatorValue] = useState(0);
+
+  function buttonPressed(value) {
+    if (value == 'C') {
+      clearState();
+    } else if (!isNaN(value)) {
+      handleNumber(value);
+    } else if (value == '+' || value == '-' || value == 'x' || value == '/') {
+      if (operatorValue != 0) {
+        setMemoryValue(calculateEquals());
+      } else {
+        setMemoryValue(answerValue);
+      }
+      setOperatorValue(value);
+      setReadyToReplace(1);
+    } else if (value == '=') {
+      calculateEquals();
+      setMemoryValue(0);
+      setReadyToReplace(1);
+    }
+  }
+
+  return (
+    &lt;SafeAreaView style={styles.container}&gt;
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.resultText}&gt;{answerValue}&lt;/Text&gt;
+        {/* keypad rows */}
+      &lt;/View&gt;
+      &lt;StatusBar style="light" /&gt;
+    &lt;/SafeAreaView&gt;
+  );
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="repo-footer">React Native Portfolio</footer>
+  </div>
+</body>
+</html>
